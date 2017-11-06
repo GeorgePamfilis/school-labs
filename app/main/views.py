@@ -17,3 +17,7 @@ def home(loc):
     return render_template(loc)
 
 
+
+
+
+
