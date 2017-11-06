@@ -1,0 +1,120 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}school-labs{% endblock %}
+{% block navbar %}
+
+{% if current_user.is_authenticated %}
+
+
+<div class="navbar navbar-inverse", role = "navigation">
+    <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">e-orders</a>
+    </div>
+        <ul class="nav navbar-nav">
+            <li class="active">
+{#                <a href="{{ url_for('manage.index') }}">Home</a>#}
+            </li>
+
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Reports<span class="caret"></span></a>
+
+                <ul class="dropdown-menu">
+{#                    <li><a href="{{ url_for('report.menu_items') }}">Menu</a></li>#}
+
+                    <li><a href="#">Orders</a></li>
+{#                    <li><a href="{{ url_for('report.waiter') }}">Waiter</a></li>#}
+                    <!--<li><a href="#">Inventory</a></li>-->
+                </ul>
+            </li>
+
+            
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Edit<span class="caret"></span></a>
+
+                <ul class="dropdown-menu">
+{#                    <li><a href="{{ url_for('manage.profile') }}">Profile</a></li>#}
+{#                    <li><a href="{{ url_for('manage.menu_editor') }}">Menu</a></li>#}
+{#                    <li><a href="{{ url_for('manage.content_editor') }}">Contents</a></li>#}
+{#                    <li><a href="{{ url_for('manage.table_editor') }}">Tables</a></li>#}
+                </ul>
+            </li>            
+
+
+
+            <ul class="nav navbar-nav">
+{#                <li><a href="{{ url_for('main.about') }}">About</a> </li>#}
+            </ul>
+
+
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+{#            <a href="{{ url_for('auth.logout') }}">Sign Out</a>#}
+        </li>
+        </ul>
+    </div>
+</div>
+
+{% else %}
+
+<div class="navbar navbar-inverse", role = "navigation">
+    <div class="container">
+            <!--<div class="navbar-header">-->
+
+            <a class="navbar-brand" href="/">e-orders</a>
+        <div class="navbar-collapse collapse">
+
+            <ul class="nav navbar-nav">
+                <li><a href="/">Home</a> </li>
+            </ul>
+
+            <ul class="nav navbar-nav">
+                <li><a href="/">Gallery</a> </li>
+            </ul>
+
+{#            <ul class="nav navbar-nav">#}
+{#                <li><a href="">Pricing</a> </li>#}
+{#            </ul>#}
+
+            <ul class="nav navbar-nav">
+{#                <li><a href="{{ url_for('main.about') }}">About</a> </li>#}
+            </ul>
+
+
+            <ul class="nav navbar-nav navbar-right">
+{#                <li><a href="{{ url_for('auth.login') }}">Sign In</a></li>#}
+            </ul>
+        </div>
+    </div>
+<!--</div>-->
+</div>
+
+{% endif %}
+
+
+{% endblock %}
+
+{% block content %}
+<div class="container">
+        {% for message in get_flashed_messages() %}
+    <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ message }}
+    </div>
+    {% endfor %}
+
+    {% block page_content %}
+
+    <!--in here goes the rest-->
+
+
+    {% endblock %}
+
+
+
+</div>
+{% endblock %}
+
+
+
