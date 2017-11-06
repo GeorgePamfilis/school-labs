@@ -12,4 +12,4 @@ def index():
 @main.route('/notebooks/<path:loc>')
 def home(loc):
     """Render website's home page."""
-    return render_template(loc)
+    return render_template('temp.html', ins=loc)
