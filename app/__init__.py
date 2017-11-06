@@ -25,10 +25,7 @@ def create_app(config_name):
 
     # TODO: organize the blueprints, rename
     from app.main import main as main_blueprint
-    app.register_blueprint(main_blueprint, url_prefix='/')
-
-    from app.download import download as download_blueprint
-    app.register_blueprint(download_blueprint, url_prefix='/download')
+    app.register_blueprint(main_blueprint, url_prefix='')
 
     return app
 
